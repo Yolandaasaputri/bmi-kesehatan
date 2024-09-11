@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buat Akun Baru</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         body {
     margin: 0;
@@ -79,14 +81,14 @@
         <h2>Buat Akun Anda</h2>
         <p>Belum Daftar? <a href="#" style="color: blue;">Registrasi</a></p>
         <form action="{{ route('login.submit') }}" method="post">
-            @csrf
+            <!--@csrf-->
             <input type="email" placeholder="Email" name="email" required>
             <input type="password" placeholder="Password" name="password" required>
             <button type="submit">login</button>
         </form>
-        @if(session('gagal'))
+       <!---@if(session('gagal'))
         <p class=""text-denger>{{session('gagal') }}</p>
-         @endif
+        @endif-->
     </div>
 </body>
 </html>

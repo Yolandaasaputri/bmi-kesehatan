@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to BMI Calculator</title>
+    <link rel="stylesheet" href="style-in.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #eef2f7;
+            color: #333;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 500px; 
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem; 
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+
+        .welcome-btn {
+            display: inline-block;
+            font-size: 1.5rem;
+            padding: 15px 30px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .welcome-btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+        }
+
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            border-top: 1px solid #ddd;
+        }
+
+        .bottom-nav a {
+            color: #333;
+            text-align: center;
+            text-decoration: none;
+            font-size: 14px;
+            flex: 1;
+            padding: 5px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .bottom-nav a:hover {
+            color: #007bff;
+            transform: scale(1.1);
+        }
+
+        .bottom-nav a.active {
+            color: #007bff;
+        }
+
+        .bottom-nav a i {
+            font-size: 24px;
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to my BMI Calculator</h1>
+        <p>Your tool for calculating Body Mass Index (BMI) effortlessly. Click the button below to start using the calculator and manage your health more effectively.</p>
+        <a href="kalkulator.html" class="welcome-btn">Start Calculator</a>
+    </div>
+
+    <div class="bottom-nav">
+        <a href="kalkulator.html">
+            <i class="fas fa-calculator"></i>
+            Kalkulator
+        </a>
+        <a href="https://www.nytimes.com/international/section/health">
+            <i class="fas fa-newspaper"></i>
+            Artikel
+        </a>
+        <a href="index.html">
+            <i class="fas fa-home"></i>
+            Home
+        </a>
+        <a href="about.html">
+            <i class="fas fa-user"></i>
+            About
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

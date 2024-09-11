@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - BMI Kalkulator</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #eef2f7;
+            color: #333;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px; 
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem; 
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .team {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 30px;
+        }
+
+        .team-item {
+            font-size: 1.2rem;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .team-item:last-child {
+            border-bottom: none;
+        }
+
+        .btn-container {
+            margin-top: 20px;
+        }
+
+        .btn-container a {
+            display: inline-block;
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            background-color: #007bff;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn-container a:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+        }
+
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            border-top: 1px solid #ddd;
+        }
+
+        .bottom-nav a {
+            color: #333;
+            text-align: center;
+            text-decoration: none;
+            font-size: 14px;
+            flex: 1;
+            padding: 5px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .bottom-nav a:hover {
+            color: #007bff;
+            transform: scale(1.1);
+        }
+
+        .bottom-nav a.active {
+            color: #007bff;
+        }
+
+        .bottom-nav a i {
+            font-size: 24px;
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>About Us</h1>
+        <p>
+            Welcome to our BMI Calculator project! This tool is designed to help you calculate your Body Mass Index (BMI) quickly and easily. 
+            Our team has worked hard to create a user-friendly and accurate calculator to assist you in managing your health and fitness goals.
+        </p>
+        <h2>Meet the Team</h2>
+        <ul class="team">
+            <li class="team-item"><strong>Yolanda</strong> - Project Leader</li>
+            <li class="team-item"><strong>Rasti</strong> - Project Management</li>
+            <li class="team-item"><strong>Farhan</strong> - Competitor Project Analyst</li>
+            <li class="team-item"><strong>Farel</strong> - System Management</li>
+            <li class="team-item"><strong>Hikram</strong> - Coder</li>
+            <li class="team-item"><strong>Putra</strong> - Coder</li>
+        </ul>
+        <div class="btn-container">
+            <a href="kalkulator.html">Go to Calculator</a>
+        </div>
+    </div>
+
+    <div class="bottom-nav">
+        <a href="kalkulator.html">
+            <i class="fas fa-calculator"></i>
+            Kalkulator
+        </a>
+        <a href="https://www.nytimes.com/international/section/health">
+            <i class="fas fa-newspaper"></i>
+            Artikel
+        </a>
+        <a href="index.html">
+            <i class="fas fa-home"></i>
+            Home
+        </a>
+        <a href="about.html">
+            <i class="fas fa-user"></i>
+            About
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

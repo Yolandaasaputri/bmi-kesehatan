@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hitung BMI Anda</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         body {
             font-family: 'Poppins', Arial, sans-serif;
@@ -150,56 +152,116 @@
             transition: color 0.3s ease;
         }
 
-        #result.show {
-            color: #3399ff;
+        #result.normal {
+            color: #28a745; /* Green for normal */
+        }
+
+        #result.underweight {
+            color: #ffc107; /* Yellow for underweight */
+        }
+
+        #result.overweight {
+            color: #dc3545; /* Red for overweight */
+        }
+
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            border-top: 1px solid #ddd;
+        }
+
+        .bottom-nav a {
+            color: #333;
+            text-align: center;
+            text-decoration: none;
+            font-size: 14px;
+            flex: 1;
+            padding: 5px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .bottom-nav a:hover {
+            color: #007bff;
+            transform: scale(1.1);
+        }
+
+        .bottom-nav a.active {
+            color: #007bff;
+        }
+
+        .bottom-nav a i {
+            font-size: 24px;
+            display: block;
+            margin-bottom: 5px;
         }
     </style>
 </head>
-
 <body>
-
     <div class="container">
         <h1>Hitung BMI Anda</h1>
         <div class="bmi-calculator">
             <form action="/home/submit" method="post">
-                @csrf
-            <div class="gender-selector">
-                <span>Saya Seorang</span>
-                <button id="male" onclick="selectGender('male')">♂️</button>
-                <button id="female" onclick="selectGender('female')">♀️</button>
-            </div>
-            <div class="input-group">
-                <label for="weight">Berat (kg):</label>
-                <button type="button" onclick="changeValue('weight', -1)">-</button>
-                <input type="number" name="weight" id="weight" value="75">
-                <button type="button" onclick="changeValue('weight', 1)">+</button>
-            </div>
-            <div class="input-group">
-                <label for="height">Tinggi (cm):</label>
-                <button type="button" onclick="changeValue('height', -1)">-</button>
-                <input type="number" name="height" id="height" value="170">
-                <button type="button" onclick="changeValue('height', 1)">+</button>
-            </div>
-            <button class="calculate-btn">Hitung</button>
-            <p id="result"></p>
+                <!--@csrf-->
+                <div class="gender-selector">
+                    <span>Saya Seorang</span>
+                    <button type="button" id="male" onclick="selectGender('male')">♂️</button>
+                    <button type="button" id="female" onclick="selectGender('female')">♀️</button>
+                </div>
+                <div class="input-group">
+                    <label for="weight">Berat (kg):</label>
+                    <button type="button" onclick="changeValue('weight', -1)">-</button>
+                    <input type="number" name="weight" id="weight" value="75">
+                    <button type="button" onclick="changeValue('weight', 1)">+</button>
+                </div>
+                <div class="input-group">
+                    <label for="height">Tinggi (cm):</label>
+                    <button type="button" onclick="changeValue('height', -1)">-</button>
+                    <input type="number" name="height" id="height" value="170">
+                    <button type="button" onclick="changeValue('height', 1)">+</button>
+                </div>
+                <button type="button" class="calculate-btn" onclick="calculateBMI()">Hitung</button>
+                <p id="result"></p>
             </form>
         </div>
     </div>
 
+    <div class="bottom-nav">
+        <a href="kalkulator.html">
+            <i class="fas fa-calculator"></i>
+            Kalkulator
+        </a>
+        <a href="https://www.nytimes.com/international/section/health">
+            <i class="fas fa-newspaper"></i>
+            Artikel
+        </a>
+        <a href="index.html">
+            <i class="fas fa-home"></i>
+            Home
+        </a>
+        <a href="about.html">
+            <i class="fas fa-user"></i>
+            About
+        </a>
+    </div>
+
     <script>
         function selectGender(gender) {
-            // Hapus kelas 'selected' dari semua tombol
             document.querySelectorAll('.gender-selector button').forEach(btn => {
                 btn.classList.remove('selected');
             });
-            // Tambahkan kelas 'selected' ke tombol yang dipilih
             document.getElementById(gender).classList.add('selected');
         }
 
         function changeValue(id, value) {
             const input = document.getElementById(id);
             let newValue = parseInt(input.value) + value;
-            // Pastikan nilai tidak kurang dari 0
             input.value = newValue < 0 ? 0 : newValue;
         }
 
@@ -208,10 +270,21 @@
             const height = parseInt(document.getElementById('height').value) / 100;
             const bmi = weight / (height * height);
             const resultElement = document.getElementById('result');
-            resultElement.innerText = `BMI Anda adalah ${bmi.toFixed(2)}`;
-            resultElement.classList.add('show');
+            let category = '';
+
+            if (bmi < 18.5) {
+                category = 'underweight';
+                resultElement.innerText = `BMI Anda adalah ${bmi.toFixed(2)} (Kekurangan berat badan)`;
+            } else if (bmi >= 18.5 && bmi < 24.9) {
+                category = 'normal';
+                resultElement.innerText = `BMI Anda adalah ${bmi.toFixed(2)} (Berat badan normal)`;
+            } else {
+                category = 'overweight';
+                resultElement.innerText = `BMI Anda adalah ${bmi.toFixed(2)} (Kelebihan berat badan)`;
+            }
+
+            resultElement.className = `show ${category}`;
         }
     </script>
-
 </body>
 </html>
